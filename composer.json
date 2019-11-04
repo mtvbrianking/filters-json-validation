@@ -1,0 +1,16 @@
+{
+    "name": "bmatovu/filters-json-validation",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mtvbrianking",
+            "email": "mtvbrianking@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "justinrainbow/json-schema": "^5.2"
+    }
+}

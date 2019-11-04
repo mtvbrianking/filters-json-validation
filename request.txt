@@ -1,0 +1,4 @@
+curl -X GET \
+  'http://htdocs.local/filters-json-validation?with[0][relation]=role&with[0][select][]=roles.id,roles.name&with[1][relation]=facility&with[1][select][]=facilities.id,facilities.name&select[]=users.id,users.role_id,users.facility_id,users.name&where[0][field]=users.name&where[0][operator]=ilike&where[0][value]=%25doe%25&sort[0][field]=users.created_at&sort[0][direction]=desc&limit=10&page=2' \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/json'

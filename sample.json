@@ -1,0 +1,39 @@
+{
+  "with": [
+    {
+      "relation": "role",
+      "select": [
+        "roles.id",
+        "roles.name"
+      ]
+    },
+    {
+      "relation": "facility",
+      "select": [
+        "facilities.id",
+        "facilities.name"
+      ]
+    }
+  ],
+  "select": [
+    "users.id",
+    "users.role_id",
+    "users.facility_id",
+    "users.name"   
+  ],
+  "where": [
+    {
+      "field": "users.name",
+      "operator": "ilike",
+      "value": "%doe%"
+    }
+  ],
+  "sort": [
+    {
+      "field": "users.created_at",
+      "direction": "desc"
+    }
+  ], 
+  "limit": 10,
+  "page": 2
+}
