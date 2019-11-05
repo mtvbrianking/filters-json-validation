@@ -16,14 +16,20 @@ $queryParams = json_decode(json_encode($_GET, JSON_NUMERIC_CHECK));
 
 $validator = new Validator; 
 
+# file:///C:/xampp/htdocs/filters-json-validation/schema.json
+
+$schema = (object) [
+    '$ref' => 'file:///' . realpath('schema.json')
+];
+
 $validator->validate(
     $queryParams,
-    (object)['$ref' => 'file://' . realpath('schema.json')],
+    $schema,
     Constraint::CHECK_MODE_APPLY_DEFAULTS
 );
  
 if (!$validator->isValid()) {
-    http_response_code(404);
+    http_response_code(400);
 
     echo json_encode([
         'message' => 'The given data is invalid.',
