@@ -1,4 +1,20 @@
-curl -X GET \
-  'http://htdocs.local/filters-json-validation?with[0][relation]=role&with[0][select][]=roles.id,roles.name&with[1][relation]=facility&with[1][select][]=facilities.id,facilities.name&select[]=users.id,users.role_id,users.facility_id,users.name&where[0][field]=users.name&where[0][operator]=ilike&where[0][value]=%25doe%25&sort[0][field]=users.created_at&sort[0][direction]=desc&limit=10&page=2' \
+curl -X GET -G \
+  'http://htdocs.local/filters-json-validation' \
   -H 'Accept: application/json' \
-  -H 'Content-Type: application/json'
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'with[0][relation]=role' \
+  -d 'with[0][select][]=roles.id' \
+  -d 'with[0][select][]=roles.name' \
+  -d 'with[1][relation]=facility' \
+  -d 'with[1][select][]=facilities.id' \
+  -d 'with[1][select][]=facilities.name' \
+  -d 'select[]=users.id' \
+  -d 'select[]=users.role_id' \
+  -d 'select[]=users.facility_id' \
+  -d 'select[]=users.name' \
+  -d 'where[0][field]=users.name' \
+  -d 'where[0][operator]=ilike' \
+  -d 'where[0][value]=%25doe%25' \
+  -d 'sort[0][field]=users.created_at' \
+  -d 'sort[0][direction]=desc' \
+  -d 'limit=15'
